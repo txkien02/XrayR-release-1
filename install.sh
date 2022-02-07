@@ -177,7 +177,7 @@ install_XrayR() {
     chmod +x /usr/bin/xrayr
     echo -e ""
     echo "XrayR Cách sử dụng tập lệnh quản lý (tương thích với thực thi xrayr, không phân biệt chữ hoa chữ thường): "
-    echo "Aiko-XrayR Supported Zalo And fix Vmess"
+    echo "AikoCute Hột Me"
     echo "------------------------------------------"
     echo "  XrayR                    - Hiển thị menu quản lý (nhiều chức năng hơn)"
     echo "  XrayR start              - Khởi động XrayR"
