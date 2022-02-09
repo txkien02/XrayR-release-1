@@ -287,6 +287,7 @@ install_XrayR() {
     echo "  XrayR version            - Xem các phiên bản XrayR"
     echo "  AikoCute Hotme           - Lệnh Này méo có đâu nên đừng sài"
     echo "------------------------------------------"
+
 }
 
 echo -e "${green}bắt đầu cài đặt${plain}"
