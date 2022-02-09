@@ -185,9 +185,27 @@ install_XrayR() {
     echo "Trang web của bạn là: ${api_host}"
     echo "---------------------------"
     echo ""
+    #Nếu không nhập, mặc định là :
+     if [ ! $api_host ]; then 
+    api_host="https://aikocute.com"
+    fi
 
+        #đặt api key
+    echo "API key"
+    echo ""
+    read -p " Apikey (web API):" api_key
+    [ -z "${api_key}" ] && api_key="adminadminadminadminadmin"
+    echo "---------------------------"
+    echo "API key của bạn là: ${api_key}"
+    echo "---------------------------"
+    echo ""
+    #nếu không Nhập mặc định là : 
+    echo "chọn adminadminadminadminadmin làm mặc định"
+    if [ ! $api_key ]; then
+    api_key="adminadminadminadminadmin"
+    fi
 
-    # Đặt số nút
+        # Đặt số nút
     echo "Đặt số nút"
     echo ""
     read -p "Vui lòng nhập node ID " node_id
@@ -197,7 +215,7 @@ install_XrayR() {
     echo "---------------------------"
     echo ""
 
-    # Chọn một thỏa thuận
+        # Chọn một thỏa thuận
     echo "Chọn giao thức (V2ray mặc định)"
     echo ""
     read -p "Vui lòng nhập giao thức bạn đang sử dụng (V2ray, Shadowsocks, Trojan): " node_type
