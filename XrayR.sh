@@ -177,15 +177,15 @@ install_XrayR() {
     chmod +x /usr/bin/xrayr
 
         #đặt api hostname
-    echo "Tên trang Web (https://aikocute.com)"
+    echo "Tên trang Web"
     echo ""
     read -p "Nhập tên Web (https://aikocute.com): " api_host
     [ -z "${api_host}" ]
+    echo "---------------------------"
     echo "Trang web của bạn là: ${api_host}"
-    if [[ $? == 0 ]]; then
-        echo "Tên trang Web không được để trống"
-        exit 1
-    fi
+    echo "---------------------------"
+    echo ""
+
 
     # Đặt số nút
     echo "Đặt số nút"
