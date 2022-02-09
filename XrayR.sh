@@ -285,9 +285,12 @@ install_XrayR() {
     echo "  XrayR uninstall          - Gỡ cài đặt XrayR"
     echo "  XrayR version            - Xem các phiên bản XrayR"
     echo "  AikoCute Hotme           - Lệnh Này méo có đâu nên đừng sài"
-    echo "------------------------------------------"}
+    echo "------------------------------------------"
+    }
 
 echo -e "${green}bắt đầu cài đặt${plain}"
+done
 install_base
 install_acme
 install_XrayR $1
+done
