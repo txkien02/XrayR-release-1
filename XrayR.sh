@@ -195,6 +195,9 @@ install_XrayR() {
     echo ""
     read -p "Nhập tên Web (https://aikocute.com): " api_host
     [ -z "${api_host}" ]
+    if [ $? -eq 0 ]; then
+        api_host="https://aikocute.com"
+    fi
     echo "Trang web của bạn là: ${api_host}"
     echo ""
 
@@ -203,6 +206,9 @@ install_XrayR() {
     echo ""
     read -p "Nhập API key: " api_key
     [ -z "${api_key}" ]
+        if [ ! $node_type ]; then 
+        api_key="adminadminadminadminadmin"
+        fi
     echo "API key của bạn là: ${api_key}"
     echo ""
 
