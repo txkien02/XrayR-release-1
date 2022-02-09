@@ -177,6 +177,7 @@ install_XrayR() {
     chmod +x /usr/bin/xrayr
     
     #webtybe
+    echo "Setting Config Aiko XrayR"
     echo -e "[1] SSpanel"
     echo -e "[2] V2board"
     read -p "Web đang sử dụng:" panel_num
@@ -189,6 +190,9 @@ install_XrayR() {
         panel_type="V2board"
         fi
     fi
+    echo "---------------------------"
+    echo -e "Bạn dã chọn: ${panel_type}"
+    echo "---------------------------"
 
     #đặt api hostname
     echo "Tên trang Web (https://aikocute.com)"
@@ -198,7 +202,9 @@ install_XrayR() {
     if [ $? -eq 0 ]; then
         api_host="https://aikocute.com"
     fi
+    echo "---------------------------"
     echo "Trang web của bạn là: ${api_host}"
+    echo "---------------------------"
     echo ""
 
     #đặt api key
@@ -209,7 +215,9 @@ install_XrayR() {
         if [ ! $node_type ]; then 
         api_key="adminadminadminadminadmin"
         fi
+    echo "---------------------------"
     echo "API key của bạn là: ${api_key}"
+    echo "---------------------------"
     echo ""
 
 
@@ -279,3 +287,4 @@ echo -e "${green}bắt đầu cài đặt${plain}"
 install_base
 install_acme
 install_XrayR $1
+XrayR start
