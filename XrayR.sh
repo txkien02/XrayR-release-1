@@ -189,7 +189,7 @@ install_XrayR() {
         if [ ! $panel_num ]; then 
     panel_type="V2board"
     fi
-    echo "panel của bạn là :" ${panel_type}
+    echo "panel của bạn là : ${panel_type}"
 
         #đặt api hostname
     echo "Tên trang Web"
@@ -278,7 +278,6 @@ install_XrayR() {
     echo "  XrayR version            - Xem các phiên bản XrayR"
     echo "  AikoCute Hotme           - Lệnh Này méo có đâu nên đừng sài"
     echo "------------------------------------------"
-}
 }
 
 echo -e "${green}bắt đầu cài đặt${plain}"
