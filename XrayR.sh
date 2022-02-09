@@ -213,16 +213,16 @@ install_XrayR() {
     echo ""
     read -p " Apikey (web API):" api_key
     [ -z "${api_key}" ] && api_key="adminadminadminadminadmin"
+    
+    echo "Admin Key AikoCute Default"
+    if [ ! $api_key ]; then
+    api_key="adminadminadminadminadmin"
+    fi
     echo "---------------------------"
     echo "API key của bạn là: ${api_key}"
     echo "---------------------------"
     echo ""
-    #nếu không Nhập mặc định là : 
-    echo "chọn adminadminadminadminadmin làm mặc định"
-    if [ ! $api_key ]; then
-    api_key="adminadminadminadminadmin"
-    fi
-
+    
         # Đặt số nút
     echo "Đặt số nút"
     echo ""
@@ -289,8 +289,7 @@ install_XrayR() {
     }
 
 echo -e "${green}bắt đầu cài đặt${plain}"
-done
+
 install_base
 install_acme
 install_XrayR $1
-done
