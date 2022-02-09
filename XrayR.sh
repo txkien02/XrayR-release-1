@@ -254,7 +254,7 @@ install_XrayR() {
     sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
     sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
     sed -i "s/ApiKey:.*/ApiKey: ${api_key}/g" /etc/XrayR/config.yml
-    sed -i "s|PanelType:.*|PanelType: \"${panel_type}\"|" /etc/XrayR/config.yml
+    sed -i "s|PanelType:.*|PanelType: \"${panel_type}\"|g" /etc/XrayR/config.yml
     echo ""
     echo "Đã hoàn tất, đang khởi động lại dịch vụ XrayR ..."
 
