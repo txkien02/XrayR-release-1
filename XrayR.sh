@@ -248,11 +248,6 @@ install_XrayR() {
     else
         node_type="V2ray"
     fi
-    
-    # Nếu không nhập, mặc định là V2ray
-    if [ ! $node_type ]; then 
-    node_type="V2ray"
-    fi
 
     echo "---------------------------"
     echo "Giao thức bạn chọn là: ${node_type}"
