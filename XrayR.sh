@@ -279,6 +279,7 @@ install_XrayR() {
     echo "  AikoCute Hotme           - Lệnh Này méo có đâu nên đừng sài"
     echo "------------------------------------------"
 }
+}
 
 echo -e "${green}bắt đầu cài đặt${plain}"
 install_base
