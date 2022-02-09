@@ -255,7 +255,6 @@ install_XrayR() {
     sed -i "s|PanelType:.*|PanelType: \"${panel_type}\"|" /etc/XrayR/config.yml
     sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
     echo "Đã ghi tệp cấu hình thành công"
-    echo ""
 
     echo -e ""
     echo "  XrayR Cách sử dụng tập lệnh quản lý (tương thích với thực thi xrayr, không phân biệt chữ hoa chữ thường): "
