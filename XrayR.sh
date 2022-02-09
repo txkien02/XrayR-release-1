@@ -221,7 +221,7 @@ install_XrayR() {
     sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
     sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
     echo ""
-    echo "Đã hoàn tất, đang cố khởi động lại dịch vụ XrayR ..."
+    echo "Đã hoàn tất, đang khởi động lại dịch vụ XrayR ..."
 
     echo -e ""
     echo "XrayR Cách sử dụng tập lệnh quản lý (tương thích với thực thi xrayr, không phân biệt chữ hoa chữ thường): "
