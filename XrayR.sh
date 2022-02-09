@@ -176,6 +176,21 @@ install_XrayR() {
     ln -s /usr/bin/XrayR /usr/bin/xrayr # chữ thường tương thích
     chmod +x /usr/bin/xrayr
 
+        #pannel
+    echo "Panel bạn đang sử dụng"
+    echo -e "[1] SSpanel"
+    echo -e "[2] V2board"
+    read -p "Chọn Web Mà bạn sử Dụng:" panel_num
+    if [ "$panel_num" == "1" ]; then
+    panel_type="SSpanel"
+    elif [ "$panel_num" == "2" ]; then
+    panel_type="V2board"
+    else
+        if [ ! $panel_num ]; then 
+    panel_type="V2board"
+    fi
+    echo "panel của bạn là :" ${panel_type}
+
         #đặt api hostname
     echo "Tên trang Web"
     echo ""
@@ -239,6 +254,7 @@ install_XrayR() {
     sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
     sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
     sed -i "s/ApiKey:.*/ApiKey: ${api_key}/g" /etc/XrayR/config.yml
+    sed -i "s|PanelType:.*|PanelType: \"${panel_type}\"|" /etc/XrayR/config.yml
     echo ""
     echo "Đã hoàn tất, đang khởi động lại dịch vụ XrayR ..."
 
