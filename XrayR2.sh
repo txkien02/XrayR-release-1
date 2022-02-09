@@ -175,6 +175,31 @@ install_XrayR() {
     chmod +x /usr/bin/XrayR
     ln -s /usr/bin/XrayR /usr/bin/xrayr # chữ thường tương thích
     chmod +x /usr/bin/xrayr
+
+    # webtype
+    echo -e ""
+    echo " bạn đang sử dụng"
+    echo -e "[1] SSpanel"
+    echo -e "[2] V2board"
+    read -p "Chọn Web Mà bạn sử Dụng:" panel_num
+    if [ "$panel_num" == "1" ]; then
+    panel_type="SSpanel"
+    elif [ "$panel_num" == "2" ]; then
+    panel_type="V2board"
+    else
+        if [ ! $panel_num ]; then 
+    panel_type="V2board"
+    fi
+    echo "---------------------------"
+    echo "Trang web của bạn là: ${panel_type}"
+    echo "---------------------------"
+    echo ""
+
+    # Writing config.yml
+    echo "Đang cố gắng ghi tệp cấu hình ..."
+    wget https://raw.githubusercontent.com/AikoCute/XrayR-release/main/config.yml -O /etc/XrayR/config.yml
+    sed -i "s/api_host/${panel_type}/g" /etc/XrayR/config.yml
+
     echo -e ""
     echo "XrayR Cách sử dụng tập lệnh quản lý (tương thích với thực thi xrayr, không phân biệt chữ hoa chữ thường): "
     echo "AikoCute Hột Me"
