@@ -195,7 +195,7 @@ install_XrayR() {
     echo ""
 
         #đặt api hostname
-    echo "Tên trang Web"
+    echo "Tên trang Web<APIHost>:"
     echo ""
     read -p " Tên miền web : (https://aikocute.com):" api_host
     [ -z "${api_host}" ] && api_host="https://aikocute.com"
@@ -222,7 +222,7 @@ install_XrayR() {
     fi
 
         # Đặt số nút
-    echo "Đặt số nút"
+    echo "NodeID"
     echo ""
     read -p "Vui lòng nhập node ID " node_id
     [ -z "${node_id}" ]
@@ -253,7 +253,7 @@ install_XrayR() {
     sed -i "s/ApiHost:.*/ApiHost: ${api_host}/g" /etc/XrayR/config.yml
     sed -i "s|ApiKey:.*|ApiKey: \"${api_key}\"|" /etc/XrayR/config.yml
     sed -i "s|PanelType:.*|PanelType: \"${panel_type}\"|" /etc/XrayR/config.yml
-    sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.ym
+    sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
     echo "Đã ghi tệp cấu hình thành công"
     echo ""
 
