@@ -249,7 +249,6 @@ install_XrayR() {
     echo "---------------------------"
     echo ""
 
-
     # Writing config.yml
     echo "Đang cố gắng ghi tệp cấu hình ..."
     wget https://raw.githubusercontent.com/AikoCute/XrayR-release/main/config.yml -O /etc/XrayR/config.yml
