@@ -251,7 +251,7 @@ install_XrayR() {
     echo "Giao thức bạn chọn là: ${node_type}"
     echo "---------------------------"
     echo ""
-
+fi
 
     # Writing config.yml
     echo "Đang cố gắng ghi tệp cấu hình ..."
