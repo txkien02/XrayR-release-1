@@ -233,18 +233,12 @@ install_XrayR() {
 
         # Chọn một thỏa thuận
     echo "Chọn giao thức (V2ray mặc định)"
-    echo -e "[1] V2ray"
-    echo -e "[2] Shadowsocks"
-    echo -e "[3] Trojan"
-    read -p "Chọn Loại nút:" node_num
-    if [ "$node_num" == "1" ]; then
-        node_type="V2ray"
-    elif [ "$node_num" == "2" ]; then
-        node_type="Shadowsocks"
-    elif [ "$node_num" == "3" ]; then
-    node_type="Trojan"
-    else
-        if [ ! $node_type ]; then 
+    echo ""
+    read -p "Vui lòng nhập giao thức bạn đang sử dụng (V2ray, Shadowsocks, Trojan): " node_type
+    [ -z "${node_type}" ]
+    
+    # Nếu không nhập, mặc định là V2ray
+    if [ ! $node_type ]; then 
     node_type="V2ray"
     fi
     echo "---------------------------"
