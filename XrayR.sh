@@ -176,53 +176,16 @@ install_XrayR() {
     ln -s /usr/bin/XrayR /usr/bin/xrayr # chữ thường tương thích
     chmod +x /usr/bin/xrayr
 
-    echo -e ""
-    echo " bạn đang sử dụng"
-    echo -e "[1] SSpanel"
-    echo -e "[2] V2board"
-    read -p "Chọn Web Mà bạn sử Dụng:" panel_num
-    if [ "$panel_num" == "1" ]; then
-    panel_type="SSpanel"
-    elif [ "$panel_num" == "2" ]; then
-    panel_type="V2board"
-    else
-        if [ ! $panel_num ]; then 
-    panel_type="V2board"
-    fi
-    echo "---------------------------"
-    echo "Trang web của bạn là: ${panel_type}"
-    echo "---------------------------"
+    #đặt api hostname
+    echo "Tên trang Web (https://aikocute.com)"
     echo ""
-
-        #đặt api hostname
-    echo "Tên trang Web<APIHost>:"
-    echo ""
-    read -p " Tên miền web : (https://aikocute.com):" api_host
-    [ -z "${api_host}" ] && api_host="https://aikocute.com"
-    echo "---------------------------"
+    read -p "Nhập tên Web (https://aikocute.com): " api_host
+    [ -z "${api_host}" ]
     echo "Trang web của bạn là: ${api_host}"
-    echo "---------------------------"
     echo ""
-    #Nếu không nhập, mặc định là :
-     if [ ! $api_host ]; then 
-    api_host="https://aikocute.com"
-    fi
 
-        #đặt api key
-    echo "API key"
-    echo ""
-    read -p " Apikey (web API):" api_key
-    [ -z "${api_key}" ] && api_key="adminadminadminadminadmin"
-    echo "---------------------------"
-    echo "API key của bạn là: ${api_key}"
-    echo "---------------------------"
-    echo ""
-        if [ ! $api_key ]; then
-    api_key="adminadminadminadminadmin"
-    fi
-
-        # Đặt số nút
-    echo "NodeID"
+    # Đặt số nút
+    echo "Đặt số nút"
     echo ""
     read -p "Vui lòng nhập node ID " node_id
     [ -z "${node_id}" ]
@@ -232,29 +195,30 @@ install_XrayR() {
     echo ""
 
         # Chọn một thỏa thuận
-    echo "Chọn giao thức (V2ray mặc định)"
-    echo ""
-    read -p "Vui lòng nhập giao thức bạn đang sử dụng (V2ray, Shadowsocks, Trojan): " node_type
-    [ -z "${node_type}" ]
-    
-    # Nếu không nhập, mặc định là V2ray
-    if [ ! $node_type ]; then 
-    node_type="V2ray"
-    fi
+        echo "Chọn giao thức (V2ray mặc định)"
+        echo ""
+        read -p "Vui lòng nhập giao thức bạn đang sử dụng (V2ray, Shadowsocks, Trojan): " node_type
+        [ -z "${node_type}" ]
+        
+        # Nếu không nhập, mặc định là V2ray
+        if [ ! $node_type ]; then 
+        node_type="V2ray"
+        fi
+
     echo "---------------------------"
     echo "Giao thức bạn chọn là: ${node_type}"
     echo "---------------------------"
     echo ""
 
+
     # Writing config.yml
     echo "Đang cố gắng ghi tệp cấu hình ..."
     wget https://raw.githubusercontent.com/AikoCute/XrayR-release/main/config.yml -O /etc/XrayR/config.yml
-    sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
     sed -i "s/ApiHost:.*/ApiHost: ${api_host}/g" /etc/XrayR/config.yml
-    sed -i "s|ApiKey:.*|ApiKey: \"${api_key}\"|" /etc/XrayR/config.yml
-    sed -i "s|PanelType:.*|PanelType: \"${panel_type}\"|" /etc/XrayR/config.yml
+    sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
     sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
-    echo "Đã ghi tệp cấu hình thành công"
+    echo ""
+    echo "Đã hoàn tất, đang cố khởi động lại dịch vụ XrayR ..."
 
     echo -e ""
     echo "  XrayR Cách sử dụng tập lệnh quản lý (tương thích với thực thi xrayr, không phân biệt chữ hoa chữ thường): "
@@ -276,7 +240,7 @@ install_XrayR() {
     echo " - XrayR version            - Xem các phiên bản XrayR"
     echo "  AikoCute Hotme           - Lệnh Này méo có đâu nên đừng sài"
     echo "------------------------------------------"
-    }
+}
 
 echo -e "${green}bắt đầu cài đặt${plain}"
 
