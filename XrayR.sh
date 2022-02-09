@@ -175,7 +175,6 @@ install_XrayR() {
     chmod +x /usr/bin/XrayR
     ln -s /usr/bin/XrayR /usr/bin/xrayr # chữ thường tương thích
     chmod +x /usr/bin/xrayr
-
     echo -e ""
     echo " bạn đang sử dụng"
     echo -e "[1] SSpanel"
@@ -284,8 +283,7 @@ install_XrayR() {
     echo "  XrayR uninstall          - Gỡ cài đặt XrayR"
     echo "  XrayR version            - Xem các phiên bản XrayR"
     echo "  AikoCute Hotme           - Lệnh Này méo có đâu nên đừng sài"
-    echo "------------------------------------------"
-}
+    echo "------------------------------------------"}
 
 echo -e "${green}bắt đầu cài đặt${plain}"
 install_base
