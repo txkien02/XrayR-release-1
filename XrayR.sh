@@ -187,7 +187,7 @@ install_XrayR() {
     panel_type="V2board"
     else
         if [ ! $panel_num ]; then 
-        panel_type="V2board"
+    panel_type="V2board"
     fi
     echo "---------------------------"
     echo "Trang web của bạn là: ${panel_type}"
@@ -235,15 +235,20 @@ install_XrayR() {
 
         # Chọn một thỏa thuận
     echo "Chọn giao thức (V2ray mặc định)"
-    echo ""
-    read -p "Vui lòng nhập giao thức bạn đang sử dụng (V2ray, Shadowsocks, Trojan): " node_type
-    [ -z "${node_type}" ]
-    
-    # Nếu không nhập, mặc định là V2ray
-    if [ ! $node_type ]; then 
+    echo -e "[1] V2ray"
+    echo -e "[2] Shadowsocks"
+    echo -e "[3] Trojan"
+    read -p "Chọn Loại nút:" node_num
+    if [ "$node_num" == "1" ]; then
+        node_type="V2ray"
+    elif [ "$node_num" == "2" ]; then
+        node_type="Shadowsocks"
+    elif [ "$node_num" == "3" ]; then
+    node_type="Trojan"
+    else
+        if [ ! $node_type ]; then 
     node_type="V2ray"
     fi
-
     echo "---------------------------"
     echo "Giao thức bạn chọn là: ${node_type}"
     echo "---------------------------"
@@ -255,9 +260,9 @@ install_XrayR() {
     wget https://raw.githubusercontent.com/AikoCute/XrayR-release/main/config.yml -O /etc/XrayR/config.yml
     sed -i "s/ApiHost:.*/ApiHost: ${api_host}/g" /etc/XrayR/config.yml
     sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
+    sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
     sed -i "s/ApiKey:.*/ApiKey: ${api_key}/g" /etc/XrayR/config.yml
     sed -i "s/PanelType:.*/PanelType: ${panel_type}/g" /etc/XrayR/config.yml
-    sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
     echo ""
     echo "Đã hoàn tất, đang khởi động lại dịch vụ XrayR ..."
 
@@ -281,7 +286,6 @@ install_XrayR() {
     echo "  XrayR version            - Xem các phiên bản XrayR"
     echo "  AikoCute Hotme           - Lệnh Này méo có đâu nên đừng sài"
     echo "------------------------------------------"
-
 }
 
 echo -e "${green}bắt đầu cài đặt${plain}"
