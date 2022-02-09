@@ -179,8 +179,8 @@ install_XrayR() {
         #đặt api hostname
     echo "Tên trang Web"
     echo ""
-    read -p "Nhập tên Web (https://aikocute.com): " api_host
-    [ -z "${api_host}" ]
+    read -p " Tên miền web : (https://aikocute.com):" api_host
+    [ -z "${api_host}" ] && api_host="https://aikocute.com"
     echo "---------------------------"
     echo "Trang web của bạn là: ${api_host}"
     echo "---------------------------"
