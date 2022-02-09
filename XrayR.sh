@@ -175,6 +175,7 @@ install_XrayR() {
     chmod +x /usr/bin/XrayR
     ln -s /usr/bin/XrayR /usr/bin/xrayr # chữ thường tương thích
     chmod +x /usr/bin/xrayr
+
     echo -e ""
     echo " bạn đang sử dụng"
     echo -e "[1] SSpanel"
@@ -257,10 +258,11 @@ install_XrayR() {
     # Writing config.yml
     echo "Đang cố gắng ghi tệp cấu hình ..."
     wget https://raw.githubusercontent.com/AikoCute/XrayR-release/main/config.yml -O /etc/XrayR/config.yml
-    sed -i "s/api_host/${api_host}/g" /etc/XrayR/config.yml
-    sed -i "s/api_key/${api_key}/g" /etc/XrayR/config.yml
-    sed -i "s/node_id/${node_id}/g" /etc/XrayR/config.yml
-    sed -i "s/node_type/${node_type}/g" /etc/XrayR/config.yml
+    sed -i "s|NodeID:.*|NodeID: ${node_id}|" /etc/XrayR/config.yml
+    sed -i "s|ApiHost:.*|ApiHost: \"${api_host}\"|" /etc/XrayR/config.yml
+    sed -i "s|ApiKey:.*|ApiKey: \"${api_key}\"|" /etc/XrayR/config.yml
+    sed -i "s|PanelType:.*|PanelType: \"${panel_type}\"|" /etc/XrayR/config.yml
+    sed -i "s|NodeType:.*|NodeType: ${node_type}|" /etc/XrayR/config.yml
     echo "Đã ghi tệp cấu hình thành công"
     echo ""
 
