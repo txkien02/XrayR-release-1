@@ -187,7 +187,7 @@ install_XrayR() {
     panel_type="V2board"
     else
         if [ ! $panel_num ]; then 
-    panel_type="V2board"
+        panel_type="V2board"
     fi
     echo "---------------------------"
     echo "Trang web của bạn là: ${panel_type}"
@@ -246,6 +246,7 @@ install_XrayR() {
     elif [ "$node_num" == "3" ]; then
     node_type="Trojan"
     else
+        if [ ! $node_num ]; then 
         node_type="V2ray"
     fi
 
