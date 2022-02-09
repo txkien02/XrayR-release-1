@@ -176,7 +176,7 @@ install_XrayR() {
     ln -s /usr/bin/XrayR /usr/bin/xrayr # chữ thường tương thích
     chmod +x /usr/bin/xrayr
 
-        #pannel
+    echo -e ""
     echo "Panel bạn đang sử dụng"
     echo -e "[1] SSpanel"
     echo -e "[2] V2board"
@@ -190,7 +190,8 @@ install_XrayR() {
     panel_type="V2board"
     fi
     echo "panel của bạn là : ${panel_type}"
-
+    fi
+    
         #đặt api hostname
     echo "Tên trang Web"
     echo ""
