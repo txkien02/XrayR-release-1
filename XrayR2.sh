@@ -190,7 +190,8 @@ echo -e ""
     panel_type="V2board"
     fi
     echo "panel của bạn là : ${panel_type}"
-
+    fi
+    
         #đặt api hostname
     echo "Tên trang Web"
     echo ""
