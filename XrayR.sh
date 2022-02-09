@@ -258,13 +258,12 @@ install_XrayR() {
     # Writing config.yml
     echo "Đang cố gắng ghi tệp cấu hình ..."
     wget https://raw.githubusercontent.com/AikoCute/XrayR-release/main/config.yml -O /etc/XrayR/config.yml
-    sed -i "s/ApiHost:.*/ApiHost: ${api_host}/g" /etc/XrayR/config.yml
-    sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
-    sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
-    sed -i "s/ApiKey:.*/ApiKey: ${api_key}/g" /etc/XrayR/config.yml
-    sed -i "s/PanelType:.*/PanelType: ${panel_type}/g" /etc/XrayR/config.yml
+    sed -i "s/api_host/${api_host}/g" /etc/XrayR/config.yml
+    sed -i "s/api_key/${api_key}/g" /etc/XrayR/config.yml
+    sed -i "s/node_id/${node_id}/g" /etc/XrayR/config.yml
+    sed -i "s/node_type/${node_type}/g" /etc/XrayR/config.yml
+    echo "Đã ghi tệp cấu hình thành công"
     echo ""
-    echo "Đã hoàn tất, đang khởi động lại dịch vụ XrayR ..."
 
     echo -e ""
     echo "XrayR Cách sử dụng tập lệnh quản lý (tương thích với thực thi xrayr, không phân biệt chữ hoa chữ thường): "
