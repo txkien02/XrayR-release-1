@@ -256,11 +256,11 @@ install_XrayR() {
     # Writing config.yml
     echo "Đang cố gắng ghi tệp cấu hình ..."
     wget https://raw.githubusercontent.com/AikoCute/XrayR-release/main/config.yml -O /etc/XrayR/config.yml
-    sed -i "s|NodeID:.*|NodeID: ${node_id}|" /etc/XrayR/config.yml
-    sed -i "s|ApiHost:.*|ApiHost: \"${api_host}\"|" /etc/XrayR/config.yml
+    sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
+    sed -i "s/ApiHost:.*/ApiHost: ${api_host}/g" /etc/XrayR/config.yml
     sed -i "s|ApiKey:.*|ApiKey: \"${api_key}\"|" /etc/XrayR/config.yml
     sed -i "s|PanelType:.*|PanelType: \"${panel_type}\"|" /etc/XrayR/config.yml
-    sed -i "s|NodeType:.*|NodeType: ${node_type}|" /etc/XrayR/config.yml
+    sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.ym
     echo "Đã ghi tệp cấu hình thành công"
     echo ""
 
