@@ -175,6 +175,20 @@ install_XrayR() {
     chmod +x /usr/bin/XrayR
     ln -s /usr/bin/XrayR /usr/bin/xrayr # chữ thường tương thích
     chmod +x /usr/bin/xrayr
+    
+    #webtybe
+    echo -e "[1] SSpanel"
+    echo -e "[2] V2board"
+    read -p "Web đang sử dụng:" panel_num
+    if [ "$panel_num" == "1" ]; then
+    panel_type="SSpanel"
+    elif [ "$panel_num" == "2" ]; then
+    panel_type="V2board"
+    else
+    if [ ! $node_type ]; then 
+        panel_type="V2board"
+        fi
+    fi
 
     #đặt api hostname
     echo "Tên trang Web (https://aikocute.com)"
@@ -183,6 +197,15 @@ install_XrayR() {
     [ -z "${api_host}" ]
     echo "Trang web của bạn là: ${api_host}"
     echo ""
+
+    #đặt api key
+    echo "API key"
+    echo ""
+    read -p "Nhập API key: " api_key
+    [ -z "${api_key}" ]
+    echo "API key của bạn là: ${api_key}"
+    echo ""
+
 
     # Đặt số nút
     echo "Đặt số nút"
@@ -211,12 +234,15 @@ install_XrayR() {
     echo ""
 
 
+
     # Writing config.yml
     echo "Đang cố gắng ghi tệp cấu hình ..."
     wget https://raw.githubusercontent.com/AikoCute/XrayR-release/main/config.yml -O /etc/XrayR/config.yml
     sed -i "s/ApiHost:.*/ApiHost: ${api_host}/g" /etc/XrayR/config.yml
     sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
     sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
+    sed -i "s/PanelType:.*/PanelType: ${panel_type}/g" /etc/XrayR/config.yml
+    sed -i "s/ApiKey:.*/ApiKey: ${api_key}/g" /etc/XrayR/config.yml
     echo ""
     echo "Đã hoàn tất, đang cố khởi động lại dịch vụ XrayR ..."
 
