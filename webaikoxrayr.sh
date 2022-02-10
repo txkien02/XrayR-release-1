@@ -176,26 +176,8 @@ install_XrayR() {
     ln -s /usr/bin/XrayR /usr/bin/xrayr # chữ thường tương thích
     chmod +x /usr/bin/xrayr
     
-    #webtybe
-    echo "Setting Config Aiko XrayR"
-    echo -e "[1] SSpanel"
-    echo -e "[2] V2board"
-    read -p "Web đang sử dụng:" panel_num
-    if [ "$panel_num" == "1" ]; then
-    panel_type="SSpanel"
-    elif [ "$panel_num" == "2" ]; then
-    panel_type="V2board"
-    else
-    if [ ! $node_type ]; then 
-        panel_type="V2board"
-        fi
-    fi
-    echo "---------------------------"
-    echo -e "Bạn dã chọn: ${panel_type}"
-    echo "---------------------------"
-
     # Đặt số nút
-    echo "Đặt số nút"
+    echo "Đặt số nút Trên Web V2Board"
     echo ""
     read -p "Vui lòng nhập node ID " node_id
     [ -z "${node_id}" ]
@@ -208,7 +190,6 @@ install_XrayR() {
     echo "Đang cố gắng ghi tệp cấu hình ..."
     wget https://raw.githubusercontent.com/AikoCute/XrayR-release/main/config.yml -O /etc/XrayR/config.yml
     sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
-    sed -i "s/PanelType:.*/PanelType: ${panel_type}/g" /etc/XrayR/config.yml
     echo ""
     echo "Đã hoàn tất, đang cố khởi động lại dịch vụ XrayR ..."
 
