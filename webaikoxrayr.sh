@@ -187,12 +187,12 @@ install_XrayR() {
     echo ""
 
     #giới hạn thiết bị
-    echo "Giới hạn thiết bị < nếu không nhập sẽ cài mặt định là 2 >"
+    echo "Giới hạn thiết bị"
     echo ""
-    read -p "Vui lòng nhập Số thiết bị tối đa: " DeviceLimit
-    [ -z "${DeviceLimit}" ] && DeviceLimit="0"
+    read -p "Vui lòng nhập Số thiết bị tối đa : " DeviceLimit
+    [ -z "${DeviceLimit}" ]
     echo "---------------------------"
-    echo "giới hạn số thiết bị: ${Devicelimit}"
+    echo "Số thiết bị sử dụng: ${Devicelimit}"
     echo "---------------------------"
     echo ""
 
