@@ -231,7 +231,7 @@ install_XrayR() {
     echo "---------------------------"
     echo ""
 
-        # Chọn một thỏa thuận
+    # Chọn một thỏa thuận
         echo "Chọn giao thức (V2ray mặc định)"
         echo ""
         read -p "Vui lòng nhập giao thức bạn đang sử dụng (V2ray, Shadowsocks, Trojan): " node_type
@@ -252,10 +252,10 @@ install_XrayR() {
     echo ""
     read -p "Vui lòng nhập Số thiết bị tối đa " DeviceLimit
     [ -z "${DeviceLimit}" ]
-    #thiet bị mac dinh
-    if [ ! $device_limit ]; then
-        DeviceLimit="2"
-    fi
+    echo "---------------------------"
+    echo "giới hạn số thiết bị: ${device_limit}"
+    echo "---------------------------"
+    echo ""
 
     # Writing config.yml
     echo "Đang cố gắng ghi tệp cấu hình ..."
