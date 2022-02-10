@@ -212,9 +212,6 @@ install_XrayR() {
     echo ""
     read -p "Nhập API key: " api_key
     [ -z "${api_key}" ]
-        if [ ! $node_type ]; then 
-        api_key="adminadminadminadminadmin"
-        fi
     echo "---------------------------"
     echo "API key của bạn là: ${api_key}"
     echo "---------------------------"
@@ -253,7 +250,7 @@ install_XrayR() {
     read -p "Vui lòng nhập Số thiết bị tối đa " DeviceLimit
     [ -z "${DeviceLimit}" ]
     echo "---------------------------"
-    echo "giới hạn số thiết bị: ${device_limit}"
+    echo "giới hạn số thiết bị: ${Devicelimit}"
     echo "---------------------------"
     echo ""
 
