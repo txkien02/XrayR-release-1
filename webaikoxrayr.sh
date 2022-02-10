@@ -179,7 +179,7 @@ install_XrayR() {
     # Đặt số nút
     echo "Đặt số nút Trên Web V2Board"
     echo ""
-    read -p "Vui lòng nhập node ID " node_id
+    read -p "Vui lòng nhập node ID :" node_id
     [ -z "${node_id}" ]
     echo "---------------------------"
     echo "Node ID của bạn đặt là: ${node_id}"
@@ -189,7 +189,7 @@ install_XrayR() {
     #giới hạn thiết bị
     echo "Giới hạn thiết bị < nếu không nhập sẽ cài mặt định là 2 >"
     echo ""
-    read -p "Vui lòng nhập Số thiết bị tối đa " DeviceLimit
+    read -p "Vui lòng nhập Số thiết bị tối đa: " DeviceLimit
     [ -z "${DeviceLimit}" ]
     echo "---------------------------"
     echo "giới hạn số thiết bị: ${Devicelimit}"
