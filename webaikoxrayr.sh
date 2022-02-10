@@ -190,7 +190,7 @@ install_XrayR() {
     echo "Giới hạn thiết bị < nếu không nhập sẽ cài mặt định là 2 >"
     echo ""
     read -p "Vui lòng nhập Số thiết bị tối đa: " DeviceLimit
-    [ -z "${DeviceLimit}" ]
+    [ -z "${DeviceLimit}" ] && DeviceLimit="0"
     echo "---------------------------"
     echo "giới hạn số thiết bị: ${Devicelimit}"
     echo "---------------------------"
@@ -200,7 +200,7 @@ install_XrayR() {
     echo "Đang cố gắng ghi tệp cấu hình ..."
     wget https://raw.githubusercontent.com/AikoCute/XrayR-release/main/config.yml -O /etc/XrayR/config.yml
     sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
-    sed -i "s/DeviceLimit:.*/DeviceLimit: ${Devicelimit}/g" /etc/XrayR/config.yml
+    sed -i "s/DeviceLimit:.*/DeviceLimit: ${DeviceLimit}/g" /etc/XrayR/config.yml
     echo ""
     echo "Đã hoàn tất, đang cố khởi động lại dịch vụ XrayR ..."
 
