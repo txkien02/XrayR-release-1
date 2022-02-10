@@ -247,7 +247,15 @@ install_XrayR() {
     echo "---------------------------"
     echo ""
 
-
+    #giới hạn thiết bị
+    echo "Giới hạn thiết bị < nếu không nhập sẽ cài mặt định là 2 >"
+    echo ""
+    read -p "Vui lòng nhập Số thiết bị tối đa " DeviceLimit
+    [ -z "${DeviceLimit}" ]
+    #thiet bị mac dinh
+    if [ ! $device_limit ]; then
+        DeviceLimit="2"
+    fi
 
     # Writing config.yml
     echo "Đang cố gắng ghi tệp cấu hình ..."
@@ -257,6 +265,7 @@ install_XrayR() {
     sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
     sed -i "s/PanelType:.*/PanelType: ${panel_type}/g" /etc/XrayR/config.yml
     sed -i "s/ApiKey:.*/ApiKey: ${api_key}/g" /etc/XrayR/config.yml
+    sed -i "s/DeviceLimit:.*/DeviceLimit: ${DeviceLimit}/g" /etc/XrayR/config.yml
     echo ""
     echo "Đã hoàn tất, đang cố khởi động lại dịch vụ XrayR ..."
 
